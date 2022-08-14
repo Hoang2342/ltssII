@@ -30,12 +30,12 @@ public class ClientDemo {
                 Enumeration ee = n.getInetAddresses();
                 while (ee.hasMoreElements()) {
                     InetAddress ip = (InetAddress) ee.nextElement();
-                    if(ip instanceof Inet6Address){
+                    if(ip instanceof Inet6Address && !ip.getHostAddress().equals("0:0:0:0:0:0:0:1")){
                         serverHost = ip.getHostAddress();
                         break;
                     }
-                }   
-            break;
+                }     
+                
             }
         } catch (SocketException ex) {
             Logger.getLogger(ClientDemo.class.getName()).log(Level.SEVERE, null, ex);

@@ -37,9 +37,7 @@ public class ServerProgram {
 
         try {
             while (true) {
-
-                // Chấp nhận một yêu cầu kết nối từ phía Client.
-                // Đồng thời nhận được một đối tượng Socket tại server.
+                // Chấp nhận một yêu cầu kết nối từ phía Client.                
                 Socket socketOfServer = listener.accept();
                 new ServiceThread(socketOfServer, clientNumber++).start();
             }
